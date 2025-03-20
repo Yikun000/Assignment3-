@@ -1,31 +1,106 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Calculation Using JavaScript</title>
 </head>
 <body>
-    <div class="container">
-        <form id="heron" class="calculator-form">
-            <fieldset>
-                <legend>Heron's Formula</legend>
-                <label for="heron-a">Side A:</label>
-                <input type="number" id="heron-a" required value="0" min="0">
+    <div class="title">Calculations</div>
 
-                <label for="heron-b">Side B:</label>
-                <input type="number" id="heron-b" required value="0" min="0">
+  <div class="container">
 
-                <label for="heron-c">Side C:</label>
-                <input type="number" id="heron-c" required value="0" min="0">
+    <!-- Heroin Formula -->
+    <div class="Heron-container">
+          <h1>Heron's Formula</h1>
+          <!-- side A -->
+          <label for="h-sideA">side A</label>
+          <input type="text" id="h-sideA">
 
-                <label for="heron-result">Area Result:</label>
-                <input type="text" id="heron-result" required readonly>
+          <!-- side B -->
+          <label for="h-sideB">side B:</label>
+          <input type="text" id="h-sideB">
 
-                <input type="submit" value="Calculate">
-            </fieldset>
-        </form>
+          <!-- side C -->
+          <label for="h-sideC">Side C:</label>
+          <input type="text" id="h-sideC">
+
+          <!-- Result for heroin -->
+          <label for="h-result">Area:</label>
+          <input type="text" id="h-result" disabled>
+          <button id="calculate-h">Calculate</button>
+
+    </div>
 
 
+      <!-- Ambiguous Case -->
+      <div class="Ambiguous-container">
+
+        <!-- Angle A -->
+        <h1>Ambiguous Case</h1>
+        <label for="angle-a-ambiguous">Angle A:</label>
+        <input type="text" id="angle-a-ambiguous">
+
+        <!-- Side A -->
+        <label for="side-a-ambiguous">Side a:</label>
+        <input type="text" id="side-a-ambiguous">
+
+        <!-- Side B -->
+        <label for="side-b-ambiguous">Side b:</label>
+        <input type="text" id="side-b-ambiguous">
+
+        <!-- Result -->
+        <label for="triangle-type-result">Triangle Type (Result):</label>
+        <input type="text" id="triangle-type-result" disabled>
+        <button id="calculate-ambiguous">Calculate</button>
+    </div>
+
+
+    <!-- Newtons Method -->
+    <div class="Newton-container">
+
+        <!-- Guess root input -->
+        <h1>Newton's Method</h1>
+        <label for="root-guess">Root Guess:</label>
+        <input type="text" id="root-guess">
+
+        <!-- Result/Answer -->
+        <label for="root-approximation-result">Root Approximation (Result):</label>
+        <input type="text" id="root-approximation-result" disabled>
+        <button id="calculate-newton">Calculate</button>
+    </div>
+
+
+    <!-- Polynomial Function -->
+    <div class="Polynomial-container">
+        <h1>Polynomial Function</h1>
+
+        <!-- Coefficients -->
+        <label for="coefficients">Coefficients:</label>
+        <input type="text" id="coefficients">
+
+        <!-- Exponents -->
+        <label for="exponents">Exponents:</label>
+        <input type="text" id="exponents">
+
+        <!-- x Value -->
+        <label for="x-value">x Value:</label>
+        <input type="text" id="x-value">
+
+        <!-- Result/Answer -->
+          <!-- Function -->
+        <label for="polynomial-function-result">Polynomial Function (Result):</label>
+        <input type="text" id="polynomial-function-result" disabled>
+          <!-- Evaluation -->
+        <label for="polynomial-evaluation-result">Polynomial Evaluation (Result):</label>
+        <input type="text" id="polynomial-evaluation-result" disabled>
+        <button id="calculate-polynomial">Calculate</button>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
 
 </body>
 </html>

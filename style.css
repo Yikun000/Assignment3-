@@ -1,0 +1,122 @@
+head {
+   
+  }
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Body Styling */
+  body {
+  
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: rgb(123, 131, 237);
+  }
+  
+  /* Main Title */
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 40px;
+  }
+  
+  /* Container for All Calculator Sections */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Section Title Styling */
+  h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Form Labels */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #34495e;
+  }
+  
+  /* Input Styling */
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Container for each calculator block */
+  .Heron-container,
+  .Ambiguous-container,
+  .Newton-container,
+  .Polynomial-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Input fields and labels in each calculator block */
+  .Heron-container label,
+  .Ambiguous-container label,
+  .Newton-container label,
+  .Polynomial-container label {
+    margin-bottom: 10px;
+  }
+  
+  /* Make the layout responsive */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      padding: 0 10px;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    h1 {
+      font-size: 1.6rem;
+    }
+  }  
