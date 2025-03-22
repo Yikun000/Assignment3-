@@ -24,6 +24,10 @@ document.getElementById('calculate-ambiguous').addEventListener('click', () => {
     const a = parseFloat(document.getElementById('side-a-ambiguous').value);
     const b = parseFloat(document.getElementById('side-b-ambiguous').value);
     const A = parseFloat(document.getElementById('angle-a-ambiguous').value);
+    if (isNaN(a) || isNaN(b) || isNaN(A)) {
+        document.getElementById('triangle-type-result').value = "Please Fill In All Fields";
+        return;
+    }
     document.getElementById('triangle-type-result').value = ambiguousCase(a, b, A);
 });
 
