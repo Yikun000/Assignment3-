@@ -11,23 +11,45 @@ document.getElementById('calculate-h').addEventListener('click', () => {
     document.getElementById('h-result').value = heronsFormula(a, b, c) || 'Invalid input';
 });
 
-// Ambiguous Case Solver
+// Ambiguous Case 
 const ambiguousCase = (a, b, A) => {
-    if (A === 90) return 'Right triangle';
     const h = b * Math.sin(A * (Math.PI / 180));
-    if (a < h) return 'No triangle';
-    if (a > b) return 'One triangle';
-    return (h < a && a < b) ? 'Two triangles (ambiguous case)' : 'One triangle';
+
+    if (A > 0 && A <= 90  ) { 
+        if(h < a && a < b){
+            return "two triangle(ambiguous case)";
+        }
+        else if (a == h) {
+            return "Right triangle";
+        }
+        else if (a < h) {
+            return "No triangle";
+        }
+        else{
+            return "One triangle";
+        }} 
+    else if (A < 180 && A > 90) {
+        if(a < b || a==b){
+        return "No triangle"; 
+        }
+        else if (a > b){
+            return "One triangle";
+        }}
+    else{
+        return "Invalid Angle";
+    }
 };
 
 document.getElementById('calculate-ambiguous').addEventListener('click', () => {
     const a = parseFloat(document.getElementById('side-a-ambiguous').value);
     const b = parseFloat(document.getElementById('side-b-ambiguous').value);
     const A = parseFloat(document.getElementById('angle-a-ambiguous').value);
+
     if (isNaN(a) || isNaN(b) || isNaN(A)) {
-        document.getElementById('triangle-type-result').value = "Please Fill In All Fields";
+        document.getElementById('triangle-type-result').value = "Please fill in all fields correctly.";
         return;
     }
+
     document.getElementById('triangle-type-result').value = ambiguousCase(a, b, A);
 });
 
