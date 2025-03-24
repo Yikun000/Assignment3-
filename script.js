@@ -70,23 +70,33 @@ document.getElementById('calculate-newton').addEventListener('click', () => {
     document.getElementById('root-approximation-result').value = newtonsMethod(g);
 });
 
-// Polynomial Evaluation
-const evaluatePolynomial = (coefficients, exponents, x) => {
-    return coefficients.reduce((sum, coef, i) => sum + coef * x ** exponents[i], 0);
-};
-
-const polynomialFunction = (coefficients, exponents) => {
-    return coefficients.map((coef, i) => {
+// Polynomial Function and Evaluation
+const polynomialFunctionAndEvaluation = (coefficients, exponents, x) => {
+    let polynomialStr = coefficients.map((coef, i) => {
+        if (exponents[i] === undefined) return ''; 
         const sign = coef < 0 ? ' - ' : i === 0 ? '' : ' + ';
         return `${sign}${Math.abs(coef)}x^${exponents[i]}`;
     }).join('');
+
+    let evaluation = coefficients.reduce((sum, coef, i) => 
+        sum + (exponents[i] !== undefined ? coef * x ** exponents[i] : 0), 0
+    );
+
+    return [polynomialStr, evaluation.toFixed(1)];
 };
 
 document.getElementById('calculate-polynomial').addEventListener('click', () => {
-    const coefficients = document.getElementById('coefficients').value.split(' ').map(Number);
-    const exponents = document.getElementById('exponents').value.split(' ').map(Number);
+    const coefficients = document.getElementById('coefficients').value.trim().split(/\s+/).map(Number);
+    const exponents = document.getElementById('exponents').value.trim().split(/\s+/).map(Number);
     const x = parseFloat(document.getElementById('x-value').value);
 
-    document.getElementById('polynomial-function-result').value = polynomialFunction(coefficients, exponents);
-    document.getElementById('polynomial-evaluation-result').value = evaluatePolynomial(coefficients, exponents, x);
+    if (coefficients.length !== exponents.length) {
+        alert("Error: Coefficients and exponents must have the same number of values.");
+        return;
+    }
+
+    const [polynomialStr, evaluation] = polynomialFunctionAndEvaluation(coefficients, exponents, x);
+
+    document.getElementById('polynomial-function-result').value = polynomialStr;
+    document.getElementById('polynomial-evaluation-result').value = evaluation;
 });
